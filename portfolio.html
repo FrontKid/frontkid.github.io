@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB Studio</title>
+
+  <!-- styles links -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/portfolio.css">
+
+  <!-- script links -->
+</head>
+
+<body>
+  <!--*****************************
+    ********HEADER PART START********
+    ******************************-->
+  <header class="header">
+    <div class="header__top container">
+      <a class="header__top-logo logo" href="index.html"><span>Web</span>Studio</a>
+      <nav class="header__nav">
+        <ul class="header__top-list">
+          <li class="header__top-item"><a href="/index.html">Студія</a></li>
+          <li class="header__top-item"><a href="/portfolio.html">Портфоліо</a></li>
+          <li class="header__top-item"><a href="#">Контакти</a></li>
+        </ul>
+      </nav>
+      <div class="header__top-contacts">
+        <a class="header__top-email" href="mailto:info@devstudio.com">info@devstudio.com</a>
+        <a class="header__top-phone" href="tel:380961111111">+38 096 111 11 11</a>
+      </div>
+    </div>
+  </header>
+
+  <!--*****************************
+    ********HEADER PART END**********
+    ******************************-->
+
+
+  <main class="main">
+    <div class="portfolio container">
+      <ul class="portfolio__nav">
+        <li class="portfolio__item"><button type="button" name="Усі" class="portfolio__btn active">Усі</button></li>
+        <li class="portfolio__item"><button type="button" name="Веб-сайт" class="portfolio__btn">Веб-сайти</button></li>
+        <li class="portfolio__item"><button type="button" name="Додаток" class="portfolio__btn">Додатки</button></li>
+        <li class="portfolio__item"><button type="button" name="Дизайн" class="portfolio__btn">Дизайн</button></li>
+        <li class="portfolio__item"><button type="button" name="Маркетинг" class="portfolio__btn">Маркетинг</button>
+        </li>
+      </ul>
+      <ul class="portfolio__cards" id="portfolio__cards"></ul>
+    </div>
+  </main>
+  <!--*********************************
+  *********FOOTER PART START***********
+  **********************************-->
+  <footer class="footer">
+    <div class="container">
+      <a class="footer__logo logo" href="/index.html"><span>Web</span>Studio</a>
+      <p class="footer__addres">м. Київ, пр-т Лесі Українки, 26</p>
+      <a class="footer__email" href="mailto:info@devstudio.com">info@devstudio.com</a>
+      <a class="footer__phone" href="tel:+380961111111">+38 096 111 11 11</a>
+    </div>
+  </footer>
+  <!--*********************************
+    *********FOOTER PART END*************
+    **********************************-->
+  <script type="module" src="/script/main.js"></script>
+</body>
+
+</html>

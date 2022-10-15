@@ -1,0 +1,26 @@
+/**************************/
+/****FOOTER PART START*****/
+/**************************/
+.footer {
+  background-color: var(--lightBlack);
+  padding: 60px 0;
+  a {
+    display: block;
+  }
+}
+
+.footer__addres {
+  margin: 20px 0 10px 0;
+  color: var(--white);
+}
+.footer__email {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 10px 0;
+}
+.footer__phone {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s ease 0s;
+}
+/**************************/
+/****FOOTER PART END*******/
+/**************************/

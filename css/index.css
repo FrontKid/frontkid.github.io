@@ -1,50 +1,7 @@
-.header__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 0;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0.02em;
-}
-
-.header__top-logo {
-  max-width: 238px;
-}
-
-.header__nav {
-  max-width: 280px;
-  position: relative;
-  left: -200px;
-}
-
-.header__top-list {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.header__top-item {
-  transition: color 0.3s ease 0s;
-}
-.header__top-item:hover {
-  color: var(--blue);
-}
-
-.header__top-contacts {
-  display: flex;
-  justify-content: space-between;
-  max-width: 307px;
-  width: 100%;
-}
-.header__top-contacts a {
-  transition: color 0.3s ease 0s;
-}
-.header__top-contacts a:hover {
-  color: var(--blue);
-}
-
-.header__main {
+/**************************/
+/******ORDER PART START****/
+/**************************/
+.order {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +9,7 @@
   background-color: var(--lightBlack);
 }
 
-.header__main-title {
+.order__title {
   font-weight: 900;
   font-size: 44px;
   line-height: 60px;
@@ -63,34 +20,19 @@
   max-width: 696px;
 }
 
-.header__main-content {
+.order__content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.header__main-btn {
+.order__btn {
   margin-top: 30px;
 }
 
-.btn {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 30px;
-  letter-spacing: 0.06em;
-  border: none;
-  background-color: var(--blue);
-  padding: 10px 32px;
-  color: var(--white);
-  border-radius: 4px;
-  box-shadow: 0px 3px 5px var(--boxShadow);
-  cursor: pointer;
-  transition: background-color 0.1s linear 0s;
-}
-.btn:active {
-  background-color: #1977c4;
-}
-
+/**************************/
+/******ORDER PART END******/
+/**************************/
 /**************************/
 /**EMPLOYMENT PART START***/
 /**************************/
@@ -188,32 +130,4 @@
 
 /**************************/
 /******TEAM PART END*******/
-/**************************/
-/**************************/
-/****FOOTER PART START*****/
-/**************************/
-.footer {
-  background-color: var(--lightBlack);
-  padding: 60px 0;
-}
-.footer a {
-  display: block;
-}
-
-.footer__addres {
-  margin: 20px 0 10px 0;
-  color: var(--white);
-}
-
-.footer__email {
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 10px 0;
-}
-
-.footer__phone {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/**************************/
-/****FOOTER PART END*******/
 /**************************/

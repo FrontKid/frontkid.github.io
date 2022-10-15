@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Montserrat" sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -24,6 +24,15 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
 }
 
 h1,
@@ -229,6 +238,24 @@ template {
   color: var(--black);
 }
 
+.btn {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  border: none;
+  background-color: var(--blue);
+  padding: 10px 32px;
+  color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0px 3px 5px var(--boxShadow);
+  cursor: pointer;
+  transition: background-color 0.1s linear 0s;
+}
+.btn:active {
+  background-color: #1977c4;
+}
+
 :root {
   --black: #212121;
   --lightBlack: #2f303a;
@@ -236,10 +263,107 @@ template {
   --grey: #757575;
   --white: #fff;
   --lilac: #f5f4fa;
+  --headerBottomBorder: #ececec;
+  --cardBackground: #f6f6f6;
   --boxShadow: #282932;
   --boxShadowCard: #92929d76;
 }
 
 /***************************************/
 /**********HELPERS IMPORTS END**********/
+/***************************************/
+/***************************************/
+/**********LAYOUT IMPORTS START*********/
+/***************************************/
+.header {
+  position: relative;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+.header__top::after {
+  content: "";
+  background-color: var(--headerBottomBorder);
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.header__top-logo {
+  max-width: 238px;
+}
+
+.header__nav {
+  width: 280px;
+  position: relative;
+  left: -150px;
+}
+
+.header__top-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__top-item {
+  transition: color 0.3s ease 0s;
+}
+.header__top-item:hover {
+  color: var(--blue);
+}
+
+.header__top-contacts {
+  display: flex;
+  justify-content: space-between;
+  max-width: 307px;
+  width: 100%;
+}
+.header__top-contacts a {
+  transition: color 0.3s ease 0s;
+}
+.header__top-contacts a:hover {
+  color: var(--blue);
+}
+
+/**************************/
+/****FOOTER PART START*****/
+/**************************/
+.footer {
+  background-color: var(--lightBlack);
+  padding: 60px 0;
+}
+.footer a {
+  display: block;
+}
+
+.footer__addres {
+  margin: 20px 0 10px 0;
+  color: var(--white);
+}
+
+.footer__email {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 10px 0;
+}
+
+.footer__phone {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s ease 0s;
+}
+
+/**************************/
+/****FOOTER PART END*******/
+/**************************/
+/***************************************/
+/**********LAYOUT IMPORTS END***********/
 /***************************************/
