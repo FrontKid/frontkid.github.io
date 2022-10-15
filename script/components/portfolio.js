@@ -3,6 +3,13 @@ import { ROOT_PORTFOLIO } from "../constants/root.js"
 
 const portfolioBtns = document.querySelectorAll('.portfolio__btn')
 
+window.addEventListener('DOMContentLoaded', () => {
+  portfolioRenderViaClick()
+})
+
+
+
+
 function renderAll(catalog) {
   for (const port of PORTFOLIO_CATALOG) {
     const { img, title, subTitle } = port
@@ -28,35 +35,31 @@ function portfolioInner(layout, img, title, subTitle) {
 }
 
 export function portfolioRenderViaClick() {
-  window.addEventListener('DOMContentLoaded', () => {
-    let htmlPortfolioCatalog = ""
-    renderAll(htmlPortfolioCatalog)
-    portfolioBtns.forEach(btn => btn.addEventListener('click', (e) => {
-      htmlPortfolioCatalog = ''
-      let curentInner = e.target.getAttribute("name");
-      const active = e.target
+  let htmlPortfolioCatalog = ""
+  renderAll(htmlPortfolioCatalog)
+  portfolioBtns.forEach(btn => btn.addEventListener('click', (e) => {
+    htmlPortfolioCatalog = ''
+    let curentInner = e.target.getAttribute("name");
+    const active = e.target
 
-      const currentActive = document.getElementsByClassName("active");
-      currentActive[0].className = currentActive[0].className.replace(" active", "");
-      active.classList.add('active');
+    const currentActive = document.getElementsByClassName("active");
+    currentActive[0].className = currentActive[0].className.replace(" active", "");
+    active.classList.add('active');
 
-      if (curentInner === 'Усі') {
-        renderAll(htmlPortfolioCatalog)
-        return
+    if (curentInner === 'Усі') {
+      renderAll(htmlPortfolioCatalog)
+      return
+    }
+
+    PORTFOLIO_CATALOG.forEach(({ img, title, subTitle }) => {
+      if (subTitle === curentInner) {
+
+        //render html when button was pressed
+        htmlPortfolioCatalog = portfolioInner(htmlPortfolioCatalog, img, title, subTitle)
       }
 
-      PORTFOLIO_CATALOG.forEach(({ img, title, subTitle }) => {
-        if (subTitle === curentInner) {
-
-          //render html when button was pressed
-          htmlPortfolioCatalog = portfolioInner(htmlPortfolioCatalog, img, title, subTitle)
-        }
-
-        ROOT_PORTFOLIO.innerHTML = htmlPortfolioCatalog;
-      })
-    }))
-  })
+      ROOT_PORTFOLIO.innerHTML = htmlPortfolioCatalog;
+    })
+  }))
 
 }
-portfolioRenderViaClick()
-
