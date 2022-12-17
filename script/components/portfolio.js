@@ -1,65 +1,75 @@
 import PORTFOLIO_CATALOG from "../constants/portfolio_catalog.js";
 import { ROOT_PORTFOLIO } from "../constants/root.js"
 
+
 const portfolioBtns = document.querySelectorAll('.portfolio__btn')
 
-window.addEventListener('DOMContentLoaded', () => {
-  portfolioRenderViaClick()
-})
+
+
 
 
 
 
 function renderAll(catalog) {
+  if (ROOT_PORTFOLIO === null) {
+    return
+  }
   for (const port of PORTFOLIO_CATALOG) {
-    const { img, title, subTitle } = port
+    const { img, title, subTitle, description } = port
 
     //render html when page was loaded
-    catalog = portfolioInner(catalog, img, title, subTitle)
+    catalog = portfolioInner(catalog, img, title, subTitle, description)
   }
 
   ROOT_PORTFOLIO.innerHTML = catalog;
 }
 
-function portfolioInner(layout, img, title, subTitle) {
+function portfolioInner(layout, img, title, subTitle, description) {
   layout += `
     <li class="portfolio__cards-item">
+    <div class="portfolio__cards-div">
       <img class="portfolio__card-img" width="370" src="${img}" />
-      <div class="portfolio__card-box">  
-        <h2 class="portfolio__card-title">${title}</h2>
-        <p class="portfolio__card-subtitle">${subTitle}</p>
-      </div>
+      <p class="portfolio__card-description">${description}</p>
+    </div>
+    <div class="portfolio__card-box">  
+      <h2 class="portfolio__card-title">${title}</h2>
+      <p class="portfolio__card-subtitle">${subTitle}</p>
+    </div>
     </li>
   `
   return layout
 }
 
-export function portfolioRenderViaClick() {
+function portfolioRenderViaClick() {
   let htmlPortfolioCatalog = ""
   renderAll(htmlPortfolioCatalog)
-  portfolioBtns.forEach(btn => btn.addEventListener('click', (e) => {
-    htmlPortfolioCatalog = ''
-    let curentInner = e.target.getAttribute("name");
-    const active = e.target
+  if (portfolioBtns) {
 
-    const currentActive = document.getElementsByClassName("active");
-    currentActive[0].className = currentActive[0].className.replace(" active", "");
-    active.classList.add('active');
+    portfolioBtns.forEach(btn => btn.addEventListener('click', (e) => {
+      htmlPortfolioCatalog = ''
+      let curentInner = e.target.getAttribute("name");
+      const active = e.target
 
-    if (curentInner === 'Усі') {
-      renderAll(htmlPortfolioCatalog)
-      return
-    }
+      const currentActive = document.getElementsByClassName("active");
+      currentActive[0].className = currentActive[0].className.replace(" active", "");
+      active.classList.add('active');
 
-    PORTFOLIO_CATALOG.forEach(({ img, title, subTitle }) => {
-      if (subTitle === curentInner) {
-
-        //render html when button was pressed
-        htmlPortfolioCatalog = portfolioInner(htmlPortfolioCatalog, img, title, subTitle)
+      if (curentInner === 'Усі') {
+        renderAll(htmlPortfolioCatalog)
+        return
       }
 
-      ROOT_PORTFOLIO.innerHTML = htmlPortfolioCatalog;
-    })
-  }))
+      PORTFOLIO_CATALOG.forEach(({ img, title, subTitle }) => {
+        if (subTitle === curentInner) {
+
+          //render html when button was pressed
+          htmlPortfolioCatalog = portfolioInner(htmlPortfolioCatalog, img, title, subTitle)
+        }
+
+        ROOT_PORTFOLIO.innerHTML = htmlPortfolioCatalog;
+      })
+    }))
+  }
 
 }
+export default portfolioRenderViaClick
