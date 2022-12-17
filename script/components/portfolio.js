@@ -11,17 +11,18 @@ const portfolioBtns = document.querySelectorAll('.portfolio__btn')
 
 
 function renderAll(catalog) {
-  if (ROOT_PORTFOLIO === null) {
-    return
-  }
-  for (const port of PORTFOLIO_CATALOG) {
-    const { img, title, subTitle, description } = port
+  if (ROOT_PORTFOLIO) {
 
-    //render html when page was loaded
-    catalog = portfolioInner(catalog, img, title, subTitle, description)
+    for (const port of PORTFOLIO_CATALOG) {
+      const { img, title, subTitle, description } = port
+
+      //render html when page was loaded
+      catalog = portfolioInner(catalog, img, title, subTitle, description)
+    }
+
+    ROOT_PORTFOLIO.innerHTML = catalog;
   }
 
-  ROOT_PORTFOLIO.innerHTML = catalog;
 }
 
 function portfolioInner(layout, img, title, subTitle, description) {

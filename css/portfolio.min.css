@@ -99,3 +99,18 @@
   line-height: 30px;
   color: var(--grey);
 }
+
+@media screen and (max-width: 1200px) {
+  .portfolio__nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .portfolio__cards {
+    gap: 10px;
+  }
+  .portfolio__cards-item {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

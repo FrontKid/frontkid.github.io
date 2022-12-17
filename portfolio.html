@@ -8,8 +8,8 @@
   <title>WEB Studio</title>
 
   <!-- styles links -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/portfolio.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link rel="stylesheet" href="/css/portfolio.min.css">
 
 </head>
 
@@ -23,10 +23,12 @@
       <nav class="header__nav">
         <ul class="header__top-list">
           <li class="header__top-item"><a href="/index.html">Студія</a></li>
-          <li class="header__top-item active"><a href="/portfolio.html">Портфоліо</a></li>
+          <li class="header__top-item active-nav"><a href="/portfolio.html">Портфоліо</a></li>
           <li class="header__top-item"><a href="#">Контакти</a></li>
         </ul>
       </nav>
+      <!-- mobile open icon -->
+      <img class="mobile-burger-icon" src="./img/svg/burger.svg" alt="">
       <div class="header__top-contacts">
         <a class="header__top-email" href="mailto:info@devstudio.com">
           <svg class="header__top-phone-icon header__top-phone-icon--left" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -34,7 +36,6 @@
             <path fill="#757575"
               d="M14.5 0h-13C.673 0 0 .673 0 1.5v9c0 .827.673 1.5 1.5 1.5h13c.827 0 1.5-.673 1.5-1.5v-9c0-.827-.673-1.5-1.5-1.5Zm0 1c.068 0 .133.014.192.039L8 6.839l-6.692-5.8A.498.498 0 0 1 1.5 1h13Zm0 10h-13a.5.5 0 0 1-.5-.5V2.095l6.672 5.783a.5.5 0 0 0 .656 0L15 2.095V10.5a.5.5 0 0 1-.5.5Z" />
           </svg>
-
           info@devstudio.com
         </a>
         <a class="header__top-phone" href="tel:380961111111">
@@ -44,7 +45,6 @@
             <path fill="#757575"
               d="M2.354 13.739a.445.445 0 0 1 0 .66.525.525 0 0 1-.708 0 .445.445 0 0 1 0-.66.525.525 0 0 1 .708 0Z" />
           </svg>
-
           +38 096 111 11 11
         </a>
       </div>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="footer__socials">
-        <h4 class="footer__socials-title">приєднуйтесь</h4>
+        <h4 class="footer__socials-title footer-title">приєднуйтесь</h4>
         <div class="footer__socials-icons">
           <a class="footer__item-icon-link" href="#">
             <svg class="footer__item-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
@@ -133,12 +133,62 @@
           </a>
         </div>
       </div>
+
+      <div class="footer__form">
+        <h4 class="footer__form-title footer-title">Підпишіться на розсилку</h4>
+        <form class="footer__form-form" action="">
+          <input class="footer__form-input" type="text" name="E-mail" placeholder="E-mail">
+          <button class="footer__form-btn btn" type="submit">
+            Підписатися
+            <svg class="footer__form-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 0L0 13.5L7.66994 16.3407L19.5 5.25002L10.5017 17.3896L10.509 17.3923L10.5 17.3896V24.0001L14.8013 18.982L20.2501 21.0001L24 0Z"
+                fill="white" />
+            </svg>
+          </button>
+        </form>
+      </div>
     </div>
   </footer>
   <!--*********************************
     *********FOOTER PART END*************
     **********************************-->
 
+  <!--*****************************
+  ********MOBILE PART START********
+  *********************************-->
+  <div class="mobile mobile-container mobile-hidden">
+    <img class="mobile-close" src="./img/svg/close.svg" alt="close">
+    <nav class="mobile-header__nav">
+      <ul class="mobile-header__top-list">
+        <li class="mobile-header__top-item"><a href="/index.html">Студія</a></li>
+        <li class="mobile-header__top-item active-nav"><a href="/portfolio.html">Портфоліо</a></li>
+        <li class="mobile-header__top-item"><a href="#">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile__bottom">
+      <div class="mobile__top-contacts">
+        <a class="mobile__top-phone" href="tel:380961111111">
+          +38 096 111 11 11
+        </a>
+        <a class="mobile__top-email" href="mailto:info@devstudio.com">
+          info@devstudio.com
+        </a>
+      </div>
+
+      <div class="mobile__social-links">
+        <a class="mobile__social-link" href="#">Instagram</a>
+        <a class="mobile__social-link" href="#">Twitter</a>
+        <a class="mobile__social-link" href="#">Facebook</a>
+        <a class="mobile__social-link" href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <!--*****************************
+  ********MOBILE PART END**********
+  *********************************-->
   <!-- script links -->
   <script type="module" src="/script/main.js"></script>
 </body>

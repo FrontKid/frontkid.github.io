@@ -207,7 +207,8 @@
 /***TEAM CUSTOMERS START***/
 /**************************/
 .customers {
-  padding: 94px 0;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
 .customers__title {
@@ -240,3 +241,73 @@
 /**************************/
 /******TEAM PART END*******/
 /**************************/
+@media screen and (max-width: 1200px) {
+  .order__content {
+    max-width: 360px;
+    letter-spacing: 0.06em;
+  }
+  .order__title {
+    font-size: 26px;
+    line-height: 42px;
+  }
+  .employment__desc {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .employment__title,
+  .employment__images {
+    display: none;
+  }
+  .team__inner {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .customers {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .customers__inner {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .employment__desc {
+    gap: 30px;
+  }
+  .employment__desc-item {
+    width: 100%;
+    max-width: 354px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .employment__desc-item {
+    width: 100%;
+    max-width: inherit;
+  }
+  .employment__desc-title {
+    text-align: center;
+  }
+  .team__title {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .team__item {
+    width: 100%;
+    max-width: inherit;
+  }
+  .team__item-icons {
+    max-width: 206px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .team__item-img {
+    max-width: 100%;
+    object-fit: contain;
+    pointer-events: none;
+  }
+}

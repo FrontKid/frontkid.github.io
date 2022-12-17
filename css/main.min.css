@@ -3,6 +3,10 @@
 /***************************************/
 @import url("https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@400;500;700;900&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+* {
+  box-sizing: border-box;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -10,7 +14,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--fontFRoboto);
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -131,12 +135,6 @@ select {
 }
 
 button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
-
 button::-moz-focus-inner,
 [type=button]::-moz-focus-inner,
 [type=reset]::-moz-focus-inner,
@@ -185,7 +183,6 @@ textarea {
 }
 
 [type=search] {
-  -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
@@ -220,7 +217,7 @@ template {
 }
 
 .logo {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--fontFRaleway);
   display: block;
   font-weight: 700;
   font-size: 26px;
@@ -256,6 +253,11 @@ template {
   background-color: #1977c4;
 }
 
+@media screen and (max-width: 770px) {
+  .title {
+    font-size: 28px;
+  }
+}
 :root {
   --black: #212121;
   --lightBlack: #2f303a;
@@ -263,11 +265,14 @@ template {
   --grey: #757575;
   --white: #fff;
   --lilac: #f5f4fa;
+  --fontFRoboto: "Roboto", sans-serif;
+  --fontFRaleway: "Raleway", sans-serif;
   --headerBottomBorder: #ececec;
   --cardBackground: #f6f6f6;
   --boxShadow: #282932;
   --boxShadowCard: #92929d76;
   --footerLinks: #44454e;
+  --popupInputBorder: #d3d3d3;
 }
 
 /***************************************/
@@ -276,6 +281,15 @@ template {
 /***************************************/
 /**********LAYOUT IMPORTS START*********/
 /***************************************/
+.mobile-burger-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile {
+  display: none;
+}
+
 .header {
   position: relative;
 }
@@ -338,10 +352,10 @@ template {
   color: var(--blue);
 }
 
-.header__top-item.active {
+.header__top-item.active-nav {
   color: var(--blue);
 }
-.header__top-item.active::after {
+.header__top-item.active-nav::after {
   width: 100%;
 }
 
@@ -351,6 +365,7 @@ template {
   justify-content: space-between;
   max-width: 307px;
   width: 100%;
+  color: var(--grey);
 }
 .header__top-contacts a {
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -381,6 +396,115 @@ template {
   left: -15px;
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .header__nav {
+    left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header__top-contacts {
+    flex-direction: column;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+    width: inherit;
+  }
+  .header__top-email {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .mobile-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .header__nav {
+    display: none;
+  }
+  .header__top-contacts {
+    display: none;
+  }
+  .mobile-burger-icon {
+    display: block;
+  }
+  .mobile {
+    display: block;
+    position: fixed;
+    left: 0;
+    transform: translateX(0);
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--white);
+    transition: transform 0.25s ease 0s;
+  }
+  .mobile-hidden {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease 0s;
+  }
+  .mobile-hidden .mobile-close {
+    display: none;
+  }
+  .mobile-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .mobile-header__nav {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    color: var(--black);
+  }
+  .mobile-header__nav .active-nav {
+    color: var(--blue);
+  }
+  .mobile-header__top-item {
+    margin-bottom: 35px;
+  }
+  .mobile__bottom {
+    position: absolute;
+    bottom: 48px;
+    color: var(--blue);
+  }
+  .mobile__top-contacts {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile__top-phone {
+    font-size: 34px;
+  }
+  .mobile__top-email {
+    margin-top: 32px;
+    font-size: 24px;
+    color: var(--grey);
+  }
+  .mobile__social-links {
+    margin-top: 64px;
+    font-size: 18px;
+  }
+  .mobile__social-link {
+    position: relative;
+  }
+  .mobile__social-link:not(:first-child) {
+    padding-left: 20px;
+  }
+  .mobile__social-link:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(33, 33, 33, 0.1);
+    right: -13px;
+  }
+}
 /**************************/
 /****FOOTER PART START*****/
 /**************************/
@@ -412,8 +536,7 @@ template {
 
 .footer__inner {
   display: flex;
-  align-items: center;
-  gap: 80px;
+  justify-content: space-between;
 }
 
 .footer__socials {
@@ -422,9 +545,7 @@ template {
 }
 
 .footer__socials-title {
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .footer__socials-icons {
@@ -433,6 +554,11 @@ template {
   width: 160px;
   justify-content: space-between;
   margin-left: 10px;
+}
+
+.footer-title {
+  text-transform: uppercase;
+  color: var(--white);
 }
 
 .footer__item-icon-link {
@@ -463,9 +589,72 @@ template {
   background-color: var(--blue);
 }
 
+.footer__form-title {
+  margin-bottom: 20px;
+}
+
+.footer__form-input {
+  padding: 15px 16px;
+  min-width: 358px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+.footer__form-input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer__form-input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer__form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__form-btn {
+  position: relative;
+  padding-right: 62px;
+}
+.footer__form-btn-icon {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /**************************/
 /****FOOTER PART END*******/
 /**************************/
+@media screen and (max-width: 1200px) {
+  .footer__inner {
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+  }
+  .footer__form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer__form-title {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 770px) {
+  .footer__form-btn {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 660px) {
+  .footer__item {
+    text-align: center;
+  }
+  .footer__socials-title {
+    text-align: center;
+  }
+}
 .order-popup {
   position: fixed;
   background: rgba(0, 0, 0, 0.2);
@@ -478,17 +667,18 @@ template {
   transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
-.order-popup__form {
+.order-popup__container {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
   background-color: white;
-  width: 528px;
-  height: 581px;
+  max-width: 528px;
+  min-height: 581px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   opacity: 1;
+  padding: 40px;
 }
 
 .order-popup__close {
@@ -505,6 +695,153 @@ template {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
+.order-popup-title {
+  margin-bottom: 10px;
+}
+
+.order-popup__form {
+  color: var(--grey);
+}
+
+.order-popup__lable,
+.order-popup__input,
+.order-popup__area {
+  display: block;
+}
+
+.order-popup__lable {
+  position: relative;
+}
+
+.order-popup__lable .order-popup__input:focus {
+  transition: border 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  border-color: var(--blue);
+}
+
+.order-popup__lable-title {
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: var(--grey);
+}
+
+.order-popup__input {
+  padding: 10px 16px 10px 40px;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid var(--popupInputBorder);
+  margin-bottom: 5px;
+}
+
+.order-popup__input-icon {
+  position: absolute;
+  bottom: calc(50% - 21px);
+  left: 12px;
+}
+
+.order-popup__input-icon path {
+  transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.order-popup__input:focus + .order-popup__input-icon path {
+  fill: var(--blue);
+}
+
+.order-popup__area {
+  padding: 12px 16px;
+  width: 100%;
+  resize: none;
+  max-height: 120px;
+  border: 1px solid var(--popupInputBorder);
+  border-radius: 4px;
+  outline: none;
+  transition: border 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+.order-popup__area:focus {
+  border-color: var(--blue);
+}
+
+.order-popup__lable-checkbox {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: inherit;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.order-popup__lable-checkbox-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.order-popup__lable-checkbox-input + .order-popup__lable-checkbox {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.order-popup__lable-checkbox-input + .order-popup__lable-checkbox::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  left: 8px;
+  border: 2px solid var(--black);
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-position: center 45%;
+}
+
+.order-popup__lable-checkbox-input:checked + .order-popup__lable-checkbox::before {
+  border-color: var(--blue);
+  background-color: var(--blue);
+  background-image: url("../../img/svg/checked.svg");
+}
+
+.order-popup__lable-checkbox-text {
+  padding-left: 36px;
+  line-height: 24px;
+}
+
+.order-popup__lable-checkbox-link {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.order-popup__btn {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 756px) {
+  .order-popup__container {
+    min-width: 450px;
+  }
+  .order-popup-title {
+    text-align: center;
+  }
+  .order-popup__lable-checkbox-text {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .order-popup__container {
+    min-width: 350px;
+  }
+}
 /***************************************/
 /**********LAYOUT IMPORTS END***********/
 /***************************************/

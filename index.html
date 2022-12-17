@@ -8,9 +8,10 @@
   <title>WEB Studio</title>
 
   <!-- styles links -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link rel="stylesheet" href="/css/index.min.css">
 </head>
+
 
 <body>
   <!--*****************************
@@ -21,11 +22,13 @@
       <a class="header__top-logo logo" href="index.html"><span>Web</span>Studio</a>
       <nav class="header__nav">
         <ul class="header__top-list">
-          <li class="header__top-item active"><a href="/index.html">Студія</a></li>
+          <li class="header__top-item active-nav"><a href="/index.html">Студія</a></li>
           <li class="header__top-item"><a href="/portfolio.html">Портфоліо</a></li>
           <li class="header__top-item"><a href="#">Контакти</a></li>
         </ul>
       </nav>
+      <!-- mobile open icon -->
+      <img class="mobile-burger-icon" src="./img/svg/burger.svg" alt="">
       <div class="header__top-contacts">
         <a class="header__top-email" href="mailto:info@devstudio.com">
           <svg class="header__top-phone-icon header__top-phone-icon--left" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -136,7 +139,7 @@
             <h3 class="team__name">Ігор Дем'яненко</h3>
             <p class="team__position">Product Designer</p>
             <div class="team__item-icons">
-              <a class="team__item-icon-link" href="#">
+              <a class="team__item-oicon-link" href="#">
                 <svg class="team__item-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
                   <g fill="#AFB1B8" clip-path="url(#a)">
                     <path
@@ -465,7 +468,7 @@
       </div>
 
       <div class="footer__socials">
-        <h4 class="footer__socials-title">приєднуйтесь</h4>
+        <h4 class="footer__socials-title footer-title">приєднуйтесь</h4>
         <div class="footer__socials-icons">
           <a class="footer__item-icon-link" href="#">
             <svg class="footer__item-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
@@ -516,6 +519,22 @@
           </a>
         </div>
       </div>
+
+      <div class="footer__form">
+        <h4 class="footer__form-title footer-title">Підпишіться на розсилку</h4>
+        <form class="footer__form-form" action="">
+          <input class="footer__form-input" name="E-mail" type="text" placeholder="E-mail">
+          <button type="submit" class="footer__form-btn btn">
+            Підписатися
+            <svg class="footer__form-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 0L0 13.5L7.66994 16.3407L19.5 5.25002L10.5017 17.3896L10.509 17.3923L10.5 17.3896V24.0001L14.8013 18.982L20.2501 21.0001L24 0Z"
+                fill="white" />
+            </svg>
+          </button>
+        </form>
+      </div>
     </div>
   </footer>
   <!--*********************************
@@ -526,13 +545,112 @@
   *********POPUP PART START************
   **********************************-->
   <div class="order-popup is-hidden" data-modal>
-    <form class="order-popup__form" action="">
+    <div class="order-popup__container container" action="">
       <img class="order-popup__close" data-modal-close src="./img/svg/close-popup.svg" alt="close">
-    </form>
+      <h2 class="order-popup-title">Залиште свої дані, ми вам передзвонимо</h2>
+      <form class="order-popup__form" action="">
+        <label class="order-popup__lable">
+          <span class="order-popup__lable-title">Ім'я</span>
+          <input class="order-popup__input" name="name" type="text">
+          <svg class="order-popup__input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_3_6998)">
+              <path
+                d="M9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9ZM9 10.5C6.9975 10.5 3 11.505 3 13.5V14.25C3 14.6625 3.3375 15 3.75 15H14.25C14.6625 15 15 14.6625 15 14.25V13.5C15 11.505 11.0025 10.5 9 10.5Z"
+                fill="#212121" />
+            </g>
+            <defs>
+              <clipPath id="clip0_3_6998">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </label>
+        <label class="order-popup__lable">
+          <span class="order-popup__lable-title">Телефон</span>
+          <input class="order-popup__input" name="phone" type="text">
+          <svg class="order-popup__input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_3_7004)">
+              <path
+                d="M13.996 11.1226L12.1579 10.9127C11.7164 10.862 11.2822 11.014 10.971 11.3252L9.63945 12.6568C7.59144 11.6147 5.91251 9.94296 4.87041 7.8877L6.20922 6.54888C6.5204 6.2377 6.67237 5.80349 6.62171 5.36205L6.41185 3.53836C6.325 2.80745 5.70988 2.25745 4.97173 2.25745H3.71976C2.902 2.25745 2.22175 2.93771 2.2724 3.75547C2.65595 9.93572 7.59868 14.8712 13.7717 15.2548C14.5894 15.3054 15.2697 14.6252 15.2697 13.8074V12.5555C15.2769 11.8245 14.7269 11.2094 13.996 11.1226Z"
+                fill="#212121" />
+            </g>
+            <defs>
+              <clipPath id="clip0_3_7004">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </label>
+        <label class="order-popup__lable">
+          <span class="order-popup__lable-title">Пошта</span>
+          <input class="order-popup__input" name="email" type="text">
+          <svg class="order-popup__input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_3_7010)">
+              <path
+                d="M15 3H3C2.175 3 1.5075 3.675 1.5075 4.5L1.5 13.5C1.5 14.325 2.175 15 3 15H15C15.825 15 16.5 14.325 16.5 13.5V4.5C16.5 3.675 15.825 3 15 3ZM14.7 6.1875L9.3975 9.5025C9.1575 9.6525 8.8425 9.6525 8.6025 9.5025L3.3 6.1875C3.1125 6.0675 3 5.865 3 5.6475C3 5.145 3.5475 4.845 3.975 5.1075L9 8.25L14.025 5.1075C14.4525 4.845 15 5.145 15 5.6475C15 5.865 14.8875 6.0675 14.7 6.1875Z"
+                fill="#212121" />
+            </g>
+            <defs>
+              <clipPath id="clip0_3_7010">
+                <rect width="18" height="18" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </label>
+        <label class="order-popup__lable">
+          <span class="order-popup__lable-title">Коментар</span>
+          <textarea class="order-popup__area" placeholder="Введіть текст" name="" id="" cols="30" rows="10"></textarea>
+        </label>
+        <input id="checkboxIn" class="order-popup__lable-checkbox-input" name="checkbox" type="checkbox">
+        <label for="checkboxIn" class="order-popup__lable-checkbox">
+          <span class="order-popup__lable-checkbox-text">Погоджуюся з розсилкою та приймаю <a
+              class="order-popup__lable-checkbox-link" href="#">Умови договору</a></span>
+        </label>
+        <button class="order-popup__btn btn" type="submit">Відправити</button>
+      </form>
+    </div>
   </div>
   <!--*********************************
   *********POPUP PART END**************
   **********************************-->
+
+  <!--*****************************
+  ********MOBILE PART START********
+  *********************************-->
+  <div class="mobile mobile-container mobile-hidden">
+    <img class="mobile-close" src="./img/svg/close.svg" alt="close">
+    <nav class="mobile-header__nav">
+      <ul class="mobile-header__top-list">
+        <li class="mobile-header__top-item active-nav"><a href="/index.html">Студія</a></li>
+        <li class="mobile-header__top-item"><a href="/portfolio.html">Портфоліо</a></li>
+        <li class="mobile-header__top-item"><a href="#">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile__bottom">
+      <div class="mobile__top-contacts">
+        <a class="mobile__top-phone" href="tel:380961111111">
+          +38 096 111 11 11
+        </a>
+        <a class="mobile__top-email" href="mailto:info@devstudio.com">
+          info@devstudio.com
+        </a>
+      </div>
+
+      <div class="mobile__social-links">
+        <a class="mobile__social-link" href="#">Instagram</a>
+        <a class="mobile__social-link" href="#">Twitter</a>
+        <a class="mobile__social-link" href="#">Facebook</a>
+        <a class="mobile__social-link" href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <!--*****************************
+  ********MOBILE PART END**********
+  *********************************-->
   <script type="module" src="./script/main.js"></script>
 </body>
 
