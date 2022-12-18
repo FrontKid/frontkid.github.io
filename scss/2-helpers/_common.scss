@@ -171,6 +171,13 @@ template {
   display: none;
 }
 
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;
